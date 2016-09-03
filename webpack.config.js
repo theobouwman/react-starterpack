@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 var BUILD_DIR = path.resolve(__dirname, 'build/js/');
-var SRC_DIR = path.resolve(__dirname, 'dev/js/');
+var SRC_DIR = path.resolve(__dirname, 'src/');
 
 var config = {
     entry: [
@@ -29,6 +29,11 @@ var config = {
                 loaders: ['babel-loader'],
                 include: SRC_DIR,
                 exclude: /node_modules/
+            },
+            {
+                test: /\.s?css$/,
+                loaders: ['style', 'css', 'sass'],
+                include: SRC_DIR
             }
         ]
     }
